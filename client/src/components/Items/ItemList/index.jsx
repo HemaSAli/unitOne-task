@@ -5,26 +5,31 @@ import { observer } from 'mobx-react';
 import './style.css';
 import ItemElement from './ItemElement';
 
+// ItemList Main Class
+
 class ItemList extends Component {
+  // get The List of Items from Database and sort it , so show the last items
   componentWillMount() {
     const { store } = this.props;
     axios.get('/items?$sort[createdAt]=-1').then((result) => {
       const { data } = result.data;
-      store.updateItems(data);
+      store.updateItems(data); // Update the Items in ItemsArray In Store class
     });
   }
 
+  // get the Next 9 Items
   next = () => {
     const { store } = this.props;
-    store.incCounter();
-    store.loading();
-    const { skip } = store.items;
-    const skipItem = skip * 9;
+    store.incCounter(); // skip in Store is 0 by defaulf > increament It
+    store.loading(); // Start Loading
+    const { skip } = store.items; // get The skip value
+    const skipItem = skip * 9; // For exaple if skip = 1 > Skip item = 9*1 = 9
     setTimeout(() => {
+      // Request Element from server and skip 9 element
       axios.get(`/items?$skip=${skipItem}&$sort[createdAt]=-1`).then((result) => {
-        store.loading();
+        store.loading(); // stop loading
         const { data } = result.data;
-        if (data.length) {
+        if (data.length) { // check if Result is not Empty
           store.updateItems(data);
         } else {
           store.decCounter();
@@ -33,7 +38,7 @@ class ItemList extends Component {
     }, 300);
   };
 
-  prev = () => {
+  prev = () => { // Same as Next but decreamnt the counter
     const { store } = this.props;
     store.decCounter();
     store.loading();
@@ -50,10 +55,10 @@ class ItemList extends Component {
     }, 300);
   };
 
-  addItem = () => {
+  addItem = () => { // show the div of Add Item by set the value to true
     const { store } = this.props;
     store.items.add = true;
-    store.setMessage(null);
+    store.setMessage(null); // clear the message
   };
 
   render() {
@@ -68,10 +73,12 @@ class ItemList extends Component {
         </button>
         <hr />
         <ul className="items_list">
+          {/* Send the Array to  ItemElement Class */}
           {items.itemsArray.map(item => (
             <ItemElement key={item.id} item={item} store={store} />
           ))}
         </ul>
+        {/* Controling the Next and Prev Buttons */}
         {store.items.skip > 0 ? (
           <button type="button" className="button_prev" onClick={this.prev}>
             <i className="fas fa-backward" />
@@ -87,6 +94,7 @@ class ItemList extends Component {
   }
 }
 
+// Set the PropsType
 ItemList.propTypes = {
   store: PropTypes.instanceOf(Object).isRequired,
 };
