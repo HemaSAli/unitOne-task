@@ -16,7 +16,7 @@ const ItemDetails = (props) => {
           <div>
             <img
               className="item_image"
-              src="https://images.pexels.com/photos/5390/sunset-hands-love-woman.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+              src={item.img}
               alt=""
             />
 
