@@ -5,6 +5,7 @@ const dbConfig = (env) => {
       user: process.env.PRODUCTION_DB_USERNAME,
       host: process.env.PRODUCTION_DB_HOST,
       database: process.env.PRODUCTION_DB_NAME,
+      port: process.env.PRODUCTION_DB_PORT,
     };
   }
   if (env === 'development') {
