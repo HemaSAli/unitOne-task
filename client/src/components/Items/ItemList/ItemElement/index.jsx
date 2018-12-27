@@ -1,5 +1,6 @@
 import React, { Fragment, Component } from 'react';
 import './style.css';
+import PropTypes from 'prop-types';
 import axios from 'axios';
 
 class ItemElement extends Component {
@@ -30,5 +31,10 @@ class ItemElement extends Component {
     );
   }
 }
+
+ItemElement.propTypes = {
+  store: PropTypes.instanceOf(Object).isRequired,
+  item: PropTypes.instanceOf(Object).isRequired,
+};
 
 export default ItemElement;

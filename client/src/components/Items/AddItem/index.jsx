@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { observer } from 'mobx-react';
+import PropTypes from 'prop-types';
 import './style.css';
 import axios from 'axios';
 
@@ -18,6 +19,9 @@ class AddItem extends Component {
             store.pushItem(data);
             store.setMessage('Added Successfully .. ');
           }
+        }).catch(() => {
+          store.loading();
+          store.setMessage('Server Error ! ');
         });
       }, 1000);
     } else {
@@ -69,5 +73,10 @@ class AddItem extends Component {
     );
   }
 }
+
+AddItem.propTypes = {
+  store: PropTypes.instanceOf(Object).isRequired,
+};
+
 
 export default observer(AddItem);
