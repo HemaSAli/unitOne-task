@@ -26,6 +26,8 @@ class ItemList extends Component {
         const { data } = result.data;
         if (data.length) {
           store.updateItems(data);
+        } else {
+          store.decCounter();
         }
       });
     }, 300);
@@ -75,11 +77,11 @@ class ItemList extends Component {
             <i className="fas fa-backward" />
           </button>
         ) : null}
-        {store.total < 9 ? null : (
+        {store.total === 9 ? (
           <button type="button" className="button_next" onClick={this.next}>
             <i className="fas fa-forward" />
           </button>
-        )}
+        ) : null}
       </div>
     );
   }
