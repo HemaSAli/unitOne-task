@@ -5,7 +5,7 @@ const services = require('./services');
 const { dbConnection } = require('./database/models');
 
 const app = express(feathers())
-  .set('port', 4040)
+  .set('port', process.env.PRODUCTION_PORT || 4040)
   .use(express.json())
   .use(express.urlencoded({ extended: true }))
   .configure(dbConnection)
