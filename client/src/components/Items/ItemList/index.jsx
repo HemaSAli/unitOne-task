@@ -28,7 +28,7 @@ class ItemList extends Component {
           store.updateItems(data);
         }
       });
-    }, 1000);
+    }, 300);
   };
 
   prev = () => {
@@ -45,7 +45,7 @@ class ItemList extends Component {
           store.updateItems(data);
         }
       });
-    }, 1000);
+    }, 300);
   };
 
   addItem = () => {
