@@ -1,0 +1,54 @@
+.items_box {
+  border-radius: 10px 0 0 10px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.items_list {
+  list-style: none;
+  padding-top: 10px;
+  margin: 0;
+  padding: 0;
+  height: 330px;
+}
+
+.item_box-title {
+  font-size: 20px;
+  text-align: center;
+  color: rgba(8, 8, 8, 0.7);
+}
+
+.button_next,
+.button_prev {
+  font-weight: bold;
+  margin: 190px 10px 0 10px;
+  font-size: 20px;
+  border: none;
+  background: none;
+  color: red;
+  cursor: pointer;
+  outline-style: none;
+}
+
+.fa-backward,
+.fa-forward,
+.fa-plus {
+  color: red;
+  transition-duration: 0.3s;
+}
+
+.fa-backward:hover,
+.fa-forward:hover,
+.fa-plus:hover {
+  color: rgba(255, 0, 0, 0.664);
+}
+
+.add_item {
+  font-weight: bold;
+  border: none;
+  background: none;
+  cursor: pointer;
+  outline-style: none;
+  color: red;
+  transition-duration: 0.3s;
+}

@@ -1,0 +1,21 @@
+.item_element {
+  background: rgba(255, 255, 255, 0.705);
+  height: 55px;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+}
+
+.item_element:hover {
+  background: #00000010;
+}
+.item_li {
+  font-size: 15px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  outline-style: none;
+  width: 100%;
+}
