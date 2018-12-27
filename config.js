@@ -1,3 +1,5 @@
+// Config File to get the information of database if Development / Production
+
 const dbConfig = (env) => {
   if (env === 'production') {
     return {

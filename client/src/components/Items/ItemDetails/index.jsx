@@ -3,12 +3,15 @@ import './style.css';
 import PropTypes from 'prop-types';
 import { observer } from 'mobx-react';
 
+// ShowDetails of Item Component
+
 const ItemDetails = (props) => {
   const { store } = props;
   const { item } = store.items;
 
   return (
     <div className="item_details">
+      {/* Check If Item is exist > if Exist show the details */}
       {item ? (
         <div>
           <h2 className="item_title">{item.title}</h2>
@@ -26,7 +29,7 @@ const ItemDetails = (props) => {
     </div>
   );
 };
-
+// Set the PropsType
 ItemDetails.propTypes = {
   store: PropTypes.instanceOf(Object).isRequired,
 };
