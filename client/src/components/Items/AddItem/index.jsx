@@ -23,7 +23,7 @@ class AddItem extends Component {
           store.loading();
           store.setMessage('Server Error ! ');
         });
-      }, 1000);
+      }, 300);
     } else {
       store.loading();
       store.setMessage('Please fill all the fields !');
