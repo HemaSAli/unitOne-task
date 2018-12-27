@@ -1,3 +1,5 @@
+const errors = require('@feathersjs/errors');
+
 module.exports = {
   before: {
     all: [],
@@ -6,6 +8,10 @@ module.exports = {
     create: [
       (context) => {
         context.data.createdAt = Date.now();
+        const { title, description, img } = context.data;
+        if (!title.trim() || !description.trim() || !img.trim()) {
+          throw new errors.BadRequest();
+        }
         return context;
       },
     ],

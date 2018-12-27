@@ -12,17 +12,25 @@ class AddItem extends Component {
     const newItem = { title, description, img };
     if (title.trim() && description.trim() && img.trim()) {
       setTimeout(() => {
-        axios.post('/items', newItem).then((result) => {
-          store.loading();
-          if (result.status === 201) {
-            const { data } = result;
-            store.pushItem(data);
-            store.setMessage('Added Successfully .. ');
-          }
-        }).catch(() => {
-          store.loading();
-          store.setMessage('Server Error ! ');
-        });
+        axios
+          .post('/items', newItem)
+          .then((result) => {
+            store.loading();
+            if (result.status === 201) {
+              const { data } = result;
+              store.pushItem(data);
+              store.setMessage('Added Successfully .. ');
+            }
+          })
+          .catch((error) => {
+            store.loading();
+            const { status } = error.response;
+            if (status === 400) {
+              store.setMessage('Please fill all the fields !');
+            } else {
+              store.setMessage('Server Error ! ');
+            }
+          });
       }, 300);
     } else {
       store.loading();
@@ -77,6 +85,5 @@ class AddItem extends Component {
 AddItem.propTypes = {
   store: PropTypes.instanceOf(Object).isRequired,
 };
-
 
 export default observer(AddItem);
