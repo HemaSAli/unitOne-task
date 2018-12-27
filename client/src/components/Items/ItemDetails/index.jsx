@@ -1,5 +1,6 @@
 import React from 'react';
 import './style.css';
+import PropTypes from 'prop-types';
 import { observer } from 'mobx-react';
 
 const ItemDetails = (props) => {
@@ -26,5 +27,10 @@ const ItemDetails = (props) => {
     </div>
   );
 };
+
+ItemDetails.propTypes = {
+  store: PropTypes.instanceOf(Object).isRequired,
+};
+
 
 export default observer(ItemDetails);

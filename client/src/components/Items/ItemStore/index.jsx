@@ -6,7 +6,7 @@ class ItemStore {
   items = {
     itemsArray: [],
     title: '',
-    img: '',
+    img: 'https://images.pexels.com/photos/5390/sunset-hands-love-woman.jpg?cs=srgb&dl=beautiful-hands-heart-5390.jpg&fm=jpg',
     description: '',
     skip: 0,
     loading: false,
@@ -59,7 +59,7 @@ class ItemStore {
   resetValues = () => {
     this.items.title = '';
     this.items.description = '';
-    this.items.img = '';
+    this.items.img = 'https://images.pexels.com/photos/5390/sunset-hands-love-woman.jpg?cs=srgb&dl=beautiful-hands-heart-5390.jpg&fm=jpg';
   };
 
   loading = () => {

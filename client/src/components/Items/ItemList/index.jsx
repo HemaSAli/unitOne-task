@@ -1,13 +1,14 @@
-import React, { Component } from "react";
-import axios from "axios";
-import { observer } from "mobx-react";
-import "./style.css";
-import ItemElement from "./ItemElement";
+import React, { Component } from 'react';
+import axios from 'axios';
+import PropTypes from 'prop-types';
+import { observer } from 'mobx-react';
+import './style.css';
+import ItemElement from './ItemElement';
 
 class ItemList extends Component {
   componentWillMount() {
     const { store } = this.props;
-    axios.get("/items?$sort[createdAt]=-1").then(result => {
+    axios.get('/items?$sort[createdAt]=-1').then((result) => {
       const { data } = result.data;
       store.updateItems(data);
     });
@@ -20,7 +21,7 @@ class ItemList extends Component {
     const { skip } = store.items;
     const skipItem = skip * 9;
     setTimeout(() => {
-      axios.get(`/items?$skip=${skipItem}&$sort[createdAt]=-1`).then(result => {
+      axios.get(`/items?$skip=${skipItem}&$sort[createdAt]=-1`).then((result) => {
         store.loading();
         const { data } = result.data;
         if (data.length) {
@@ -37,7 +38,7 @@ class ItemList extends Component {
     const { skip } = store.items;
     const skipItem = skip * 9;
     setTimeout(() => {
-      axios.get(`/items?$skip=${skipItem}&$sort[createdAt]=-1`).then(result => {
+      axios.get(`/items?$skip=${skipItem}&$sort[createdAt]=-1`).then((result) => {
         store.loading();
         const { data } = result.data;
         if (data.length) {
@@ -83,5 +84,10 @@ class ItemList extends Component {
     );
   }
 }
+
+ItemList.propTypes = {
+  store: PropTypes.instanceOf(Object).isRequired,
+};
+
 
 export default observer(ItemList);
