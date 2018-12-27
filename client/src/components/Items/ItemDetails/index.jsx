@@ -19,7 +19,6 @@ const ItemDetails = (props) => {
               src={item.img}
               alt=""
             />
-
             <div className="item_description">{item.description}</div>
           </div>
         </div>
