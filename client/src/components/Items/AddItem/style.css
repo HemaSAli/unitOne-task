@@ -1,0 +1,38 @@
+.input_new {
+  width: 100%;
+  padding: 5px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.add_box {
+  padding: 20px;
+  height: 100%;
+}
+
+.add_form {
+  margin: 20px;
+}
+
+.input_submit {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.76);
+  color: white;
+  padding: 5px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition-duration: 0.3s;
+  font-weight: bold;
+}
+
+.input_submit:hover {
+  background: rgba(0, 0, 0, 0.664);
+}
+
+.message{
+    color: red;
+    font-size: 15px;
+}

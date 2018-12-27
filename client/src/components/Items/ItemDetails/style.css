@@ -1,0 +1,16 @@
+.item_details {
+  padding: 20px;
+}
+.item_image {
+  margin: 10px;
+  width: 130px;
+  height: 130px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  float: left;
+}
+
+.item_description {
+  text-align: justify;
+  margin: 15px;
+}
